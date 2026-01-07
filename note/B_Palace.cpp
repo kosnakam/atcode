@@ -43,7 +43,6 @@ int main()
     auto iter = std::find(tmp.begin(), tmp.end(), val);
     ret = std::distance(tmp.begin(), iter);
 
-
     std::cout << ret + 1;
     return (0);
 }
