@@ -18,16 +18,18 @@ int main()
 
     for (int i=0; i < n - 1; i++)
     {
-        for (int j=0; j < d; j++)
+        for (int j=i + 1; j < n; j++)
         {
             int ele = 0;
-            for (int k=1; k + i < n; k++)
+            for (int k=0; k < d; k++)
             {
-                ele += pow(std::abs(x[i][j] - x[i + k][j]), 2);
+                ele += pow(std::abs(x[i][k] - x[j][k]), 2);
             }
-            std::cout << ele << std::endl;
+            double sq = sqrt(ele);
+            if (sq == floor(sq))
+                c++;
         }
     }
-    // std::cout << c;
+    std::cout << c;
     return (0);
 }
