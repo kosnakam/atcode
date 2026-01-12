@@ -1,35 +1,16 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 #define rep(i, n) for (int i=0; i < n; i++)
 
 int main()
 {
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(NULL);
+    int a, b, c=0; std::cin >> a >> b;
 
-    int n, c=0;
-    std::cin >> n;
-    std::vector<int> l(n);
-    rep(i, n) std::cin >> l[i];
-
-    std::sort(l.begin(), l.end());
-    rep(i, n - 2)
+    for(;a <= b; ++a)
     {
-        int j = i + 1;
-        for (; j < n - 1; j++)
-        {
-            int k = j + 1;
-            if (l[i] == l[j])
-                continue;
-            for (; k < n; k++)
-            {
-                if (l[k] == l[i] || l[k] == l[j])
-                    continue;
-                if (l[i] + l[j] > l[k])
-                    c++;
-            }
-        }
+        if (a / 10000 == a % 10 && (a / 1000) % 10 == (a % 100) / 10)
+            c++;
     }
     std::cout << c;
     return (0);
