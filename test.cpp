@@ -1,17 +1,15 @@
+#define ll long long
 #include <bits/stdc++.h>
-#define rep(i, n) for (int i=0; i < n; i++)
+#define rep(n) for (size_t i=0; i < n; ++i)
 
 int main()
 {
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(NULL);
-    int a, b, c=0; std::cin >> a >> b;
-
-    for(;a <= b; ++a)
-    {
-        if (a / 10000 == a % 10 && (a / 1000) % 10 == (a % 100) / 10)
-            c++;
-    }
-    std::cout << c;
+    size_t n, m; std::cin >> n >> m;
+    std::vector<size_t> ab(2 * m);
+    rep(2 * m) std::cin >> ab[i];
+    rep(n)
+        std::cout << std::count(ab.begin(), ab.end(), i + 1) << std::endl;
     return (0);
 }
