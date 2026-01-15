@@ -6,20 +6,16 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int n, m;
-    cin >> n;
-    vector<string> s(n); rep(n) cin >> s[i];
-    cin >> m;
-    vector<string> t(m); rep(m) cin >> t[i];
-
-    int ret = 0;
-    for (string str: s)
-    {
-        int c=0;
-        rep(n) if (s[i] == str) ++c;
-        rep(m) if (t[i] == str) --c;
-        ret = max(ret, c);
-    }
+    int n, k; cin >> n >> k;
+    vector<int> a(n); rep(n) cin >> a[i];
+    vector<int> kind(n, 0);
+    rep(n) for (int j: a) if (i + 1 == j) ++kind[i];
+    // for (auto it = kind.begin(); it != kind.end();) if (*it == 0) it = kind.erase(it); else ++it;
+    // kind.erase(remove(kind.begin(), kind.end(), 0), kind.end());
+    erase(kind, 0);
+    sort(kind.begin(), kind.end());
+    int ret=0, in=max(0, int(kind.size()) - k);
+    rep(in) ret += kind[i];
     cout << ret;
     return 0;
 }
