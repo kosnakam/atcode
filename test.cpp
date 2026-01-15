@@ -1,18 +1,32 @@
+#define ll long long
 #include <bits/stdc++.h>
 using namespace std;
-#define rep(n) for (int i=0; i <= n; ++i)
+#define rep(n) for (ll i=1; i <= n; ++i)
+
+int keta(ll ar)
+{
+    int ret=0;
+    while (ar > 0)
+    {
+        ar /= 10;
+        ++ret;
+    }
+    return ret;
+}
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int a, b, c, x, y; cin >> a >> b >> c >> x >> y;
-    int i = 2 * c * max(x, y);
-    int j = a * x + b * y;
-    int k=0;
-    if (x > y)
-        k = 2 * c * y + (x - y) * a;
-    else
-        k = 2 * c * x + (y - x) * b;
-    std::cout << min({i, j, k});
+    ll n; cin >> n;
+    int ret=1000000000;
+    int c=sqrt(n);
+    rep(c)
+    {
+        if (n % i == 0)
+        {
+            ret = min(ret, max(keta(i), keta(n / i)));
+        }
+    }
+    cout << ret;
     return 0;
 }
