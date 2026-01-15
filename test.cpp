@@ -1,21 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define rep(n) for (int i=0; i < n; ++i)
+#define rep(n) for (int i=0; i <= n; ++i)
 
-int main()
-{
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int n, k; cin >> n >> k;
-    vector<int> a(n); rep(n) cin >> a[i];
-    vector<int> kind(n, 0);
-    rep(n) ++kind[a[i] - 1];
-    // for (auto it = kind.begin(); it != kind.end();) if (*it == 0) it = kind.erase(it); else ++it;
-    // kind.erase(remove(kind.begin(), kind.end(), 0), kind.end());
-    erase(kind, 0);
-    sort(kind.begin(), kind.end());
-    int ret=0, in=max(0, int(kind.size()) - k);
-    rep(in) ret += kind[i];
-    cout << ret;
+    int a, b, c, x, y; cin >> a >> b >> c >> x >> y;
+    int i = 2 * c * max(x, y);
+    int j = a * x + b * y;
+    int k=0;
+    if (x > y)
+        k = 2 * c * y + (x - y) * a;
+    else
+        k = 2 * c * x + (y - x) * b;
+    std::cout << min({i, j, k});
     return 0;
 }
