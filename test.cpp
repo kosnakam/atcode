@@ -9,7 +9,7 @@ int main()
     int n, k; cin >> n >> k;
     vector<int> a(n); rep(n) cin >> a[i];
     vector<int> kind(n, 0);
-    rep(n) for (int j: a) if (i + 1 == j) ++kind[i];
+    rep(n) ++kind[a[i] - 1];
     // for (auto it = kind.begin(); it != kind.end();) if (*it == 0) it = kind.erase(it); else ++it;
     // kind.erase(remove(kind.begin(), kind.end(), 0), kind.end());
     erase(kind, 0);
